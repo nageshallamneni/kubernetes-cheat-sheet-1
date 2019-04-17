@@ -20,7 +20,3 @@ Exec command to specific pods
 $ kubectl exec POD_NAME -it sh
 ​~~~~
 
-Describe specific pod
-~~~~
-$ kubectl describe pod POD_NAME
-~~~~
