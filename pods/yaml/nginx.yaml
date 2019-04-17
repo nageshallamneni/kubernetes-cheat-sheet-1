@@ -6,7 +6,6 @@ metadata:
     name: webserver
 spec:
   containers:
-    
     - name: webserver
       image: nginx:alpine
       resources:
@@ -18,3 +17,7 @@ spec:
           cpu: "256m"
       ports:
         - containerPort: 80
+    - name: database
+      image: mongo:latest
+      ports:
+        - containerPort: 27017
