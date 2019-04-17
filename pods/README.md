@@ -12,5 +12,10 @@ $ kubectl get pods -o wide
 
 Get pods with specific namespace
 ~~~~
-$ kubectl get pods --namespace=NAME_NAMESPACE
+$ kubectl get pods --namespace=<namespace>
+~~~~
+
+Describe specifiec pod
+~~~~
+$ kubectl describe pod <podname>
 ~~~~
