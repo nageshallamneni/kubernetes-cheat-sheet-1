@@ -15,7 +15,12 @@ Get pods with specific namespace
 $ kubectl get pods --namespace=<namespace>
 ~~~~
 
-Describe specifiec pod
+Describe specific pod
 ~~~~
 $ kubectl describe pod <podname>
+~~~~
+
+Run command to specific pod
+~~~~
+$ kubectl exec <podname> -it <command>
 ~~~~
