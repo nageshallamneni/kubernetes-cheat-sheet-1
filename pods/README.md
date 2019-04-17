@@ -24,3 +24,8 @@ Run command to specific pod
 ~~~~
 $ kubectl exec <podname> -it <command>
 ~~~~
+
+Create pod with yaml file
+~~~~
+$ kubectl create -f pods/nginx.yaml
+~~~~ 

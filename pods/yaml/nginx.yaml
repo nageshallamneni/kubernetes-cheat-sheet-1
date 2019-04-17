@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: http
+  labels:
+    name: webserver
+spec:
+  containers:
+    
+    - name: webserver
+      image: nginx:alpine
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "256Mi"
+        limits:
+          memory: "128Mi"
+          cpu: "512Mi"
+      ports:
+        - containerPort: 80
