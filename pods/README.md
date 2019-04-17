@@ -10,20 +10,17 @@ Get all pods with details
 $ kubectl get pods -o wide
 ~~~~
 
-
 Get pods with specific namespace
 ~~~~
-$ kubectl get pods --namespace=<name-space>
+$ kubectl get pods --namespace=NAME_NAMESPACE
 ~~~~
-
 
 Exec command to specific pods
 ~~~~
-$ kubectl exec <pod_name> -it sh
+$ kubectl exec POD_NAME -it sh
 ​~~~~
-
 
 Describe specific pod
 ~~~~
-$ kubectl describe pod <pod_name>
+$ kubectl describe pod POD_NAME
 ~~~~
