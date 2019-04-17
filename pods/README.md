@@ -19,4 +19,3 @@ Exec command to specific pods
 ~~~~
 $ kubectl exec POD_NAME -it sh
 ​~~~~
-
