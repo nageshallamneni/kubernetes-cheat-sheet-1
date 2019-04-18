@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
   - name: database
-    image: mongo:alpine
+    image: mongo:latest
     resources:
       limits:
         memory: "128Mi"
