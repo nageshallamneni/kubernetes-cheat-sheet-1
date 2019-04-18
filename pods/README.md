@@ -10,6 +10,11 @@ Get all pods with details
 $ kubectl get pods -o wide
 ~~~~
 
+Get pods all namespace
+~~~~
+$ kubectl get pods --all-namespaces
+~~~~
+
 Get pods with specific namespace
 ~~~~
 $ kubectl get pods --namespace=<namespace>
