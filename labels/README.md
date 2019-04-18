@@ -4,8 +4,6 @@ Show labels
 ~~~~
 $ kubectl get pods --namespace=<namespace_name> --show-labels
 ~~~~
-
-Ex:
 ~~~~
 $ kubectl get pods --namespace=applications --show-labels
 
@@ -20,8 +18,6 @@ Set label to pods
 ~~~~
 $ kubectl label pods <metadata.name> <key>:<value> 
 ~~~~
-
-Ex:
 ~~~~
 $ kubectl label pods mongodb name=db --namespace=applications
 
@@ -34,13 +30,8 @@ nginx     1/1     Running   0          9m58s   name=web
 Filter label with specific value
 ~~~~
 $ kubectl get pods --selector name=web
-
-or
-
 $ kubectl get pods -l name=web
 ~~~~
-
-Ex:
 ~~~~
 $ kubectl get pod -l name=db --namespace=applications
 
@@ -57,6 +48,3 @@ apache    1/1     Running   0          12m
 mongodb   1/1     Running   0          10m
 nginx     1/1     Running   0          12m
 ~~~~
-
-
-
