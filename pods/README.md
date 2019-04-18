@@ -28,4 +28,9 @@ $ kubectl exec <podname> -it <command>
 Create pod with yaml file
 ~~~~
 $ kubectl create -f pods/nginx.yaml
-~~~~ 
+~~~~
+
+Delete pod from yaml file
+~~~~
+$ kubectl delete -f pods/nginx.yaml
+~~~~
