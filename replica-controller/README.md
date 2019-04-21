@@ -42,4 +42,6 @@ replicationcontroller "webserver" scaled
 Delete replica controller
 ~~~~
 $ kubectl delete rc webserver
+
+replicationcontroller "webserver" deleted
 ~~~~
