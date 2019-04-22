@@ -44,6 +44,10 @@ $ curl -XGET http://10.233.60.180:8080
 ![NodePort](https://cdn-images-1.medium.com/max/800/1*CdyUtG-8CfGu2oFC5s0KwA.png)
 
 ~~~~
+$ kubectl expose rc webserver --port=8888 --target-port=80 --type='NodePort' --namespace=webapps --name=web-service-nodeport
+service/web-service-nodeport exposed
+~~~~
+~~~~
 $ kubectl apply -f service/yaml/nginx-svc-nodeport.yaml
 service/web-service-nodeport created
 
