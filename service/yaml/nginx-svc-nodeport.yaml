@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: webapps
+  name: web-service-nodeport
+spec:
+  selector:
+    app: web
+  ports:
+  - port: 8888
+    targetPort: 80
+    nodePort: 30080
+    protocol: TCP
+    name: http
+  externalIPs:
+    - 128.199.113.42
+  type: NodePort
+  
