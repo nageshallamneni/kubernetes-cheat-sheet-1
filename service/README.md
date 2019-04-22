@@ -18,7 +18,7 @@ $ kubectl apply -f service/yaml/nginx-rc.yaml
 ![ClusterIP](https://cdn-images-1.medium.com/max/800/1*I4j4xaaxsuchdvO66V3lAg.png)
 
 ~~~~
-$ kubectl apply -f service/yaml/nginx-svc-clusterip.yaml
+$ kubectl apply -f service/yaml/svc-clusterip.yaml
 service "web-service" created
 
 $ kubectl describe svc web-service --namespace=webapps
@@ -48,7 +48,7 @@ $ kubectl expose rc webserver --port=8888 --target-port=80 --type='NodePort' --n
 service/web-service-nodeport exposed
 ~~~~
 ~~~~
-$ kubectl apply -f service/yaml/nginx-svc-nodeport.yaml
+$ kubectl apply -f service/yaml/svc-nodeport.yaml
 service/web-service-nodeport created
 
 $ kubectl describe svc web-service-nodeport --namespace=webapps
@@ -70,3 +70,6 @@ Events:                   <none>
 
 URL: http://<ip-server-host>:30080
 ~~~~
+
+
+#### Create service ingress ####

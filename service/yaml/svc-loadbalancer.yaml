@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service-loadbalance
+  namespace: webapps
+spec:
+  type: LoadBalancer
+  externalIPs:
+    - 128.199.113.42
+    - 128.199.176.31
+  ports:
+  - port: 80
+    targetPort: 80
