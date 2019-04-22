@@ -37,7 +37,7 @@ $ kubectl rollout undo deploy web-server --namespace=applications --to-revision=
 deployment.apps "web-server" 
 ~~~~
 
-#### Delete deployment#### 
+#### Delete deployment #### 
 ~~~~
 $ kubectl delete deploy web-server --namespace=applications
 

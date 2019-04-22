@@ -1,6 +1,6 @@
 ## Labels ##
 
-#### Show labels####
+#### Show labels ####
 ~~~~
 $ kubectl get pods --namespace=applications --show-labels
 
@@ -11,7 +11,7 @@ nginx     1/1     Running   0          3m29s   name=web
 ~~~~
 
 
-####Set label to pods####
+#### Set label to pods ####
 ~~~~
 $ kubectl label pods mongodb name=db --namespace=applications
 
@@ -22,7 +22,7 @@ nginx     1/1     Running   0          9m58s   name=web
 ~~~~
 
 
-####Filter label with specific value####
+#### Filter label with specific value ####
 ~~~~
 $ kubectl get pods --selector name=db --namespace=applications
 or
@@ -33,7 +33,7 @@ mongodb   1/1     Running   0          8m50s
 ~~~~
 
 
-####Filter label with multiple value####
+#### Filter label with multiple value ####
 ~~~~
 $ kubectl get pods -l 'name in (web,db)'
 
@@ -44,7 +44,7 @@ nginx     1/1     Running   0          12m
 ~~~~
 
 
-####Filter label with negation####
+#### Filter label with negation ####
 ~~~~
 $ kubectl get pods -l 'name notin (db)' --namespace=applications
 or
@@ -56,7 +56,7 @@ nginx    1/1     Running   0          40m
 ~~~~
 
 
-####Delete pod base on label name####
+#### Delete pod base on label name ####
 ~~~~
 $ kubectl delete pods -l name=web --namespace=applications
 
