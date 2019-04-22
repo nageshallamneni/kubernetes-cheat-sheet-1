@@ -1,6 +1,6 @@
-### Service ###
+## Service ##
 
-Get replica controller.
+#### Get replica controller ####
 ~~~~
 $ kubectl get rc
 
@@ -8,7 +8,7 @@ NAME        DESIRED   CURRENT   READY     AGE
 webserver   6         6         6         1h
 ~~~~
 
-Describe replica controller.
+#### Describe replica controller ####
 ~~~~
 $ kubectl describe rc
 
@@ -32,14 +32,14 @@ Pod Template:
 Events:           <none>
 ~~~~
 
-Scale replica controller
+#### Scale replica controller ####
 ~~~~
 $ kubectl scale --replicas=6 rc/webserver
 
 replicationcontroller "webserver" scaled
 ~~~~
 
-Delete replica controller
+#### Delete replica controller ####
 ~~~~
 $ kubectl delete rc webserver
 

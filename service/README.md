@@ -1,6 +1,6 @@
-### Service ###
+## Service ##
 
-Get services
+#### Get services ####
 ~~~~
 $ kubectl get svc
 
