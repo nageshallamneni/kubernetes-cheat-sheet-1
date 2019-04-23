@@ -16,7 +16,7 @@ $ kubectl apply -f service/yaml/nginx-rc.yaml
 #### Create service ClusterIP ####
 This is the default Service Type, only reachable from within the cluster. Consider this as an internal load balancer.
 
-![ClusterIP](https://drive.google.com/file/d/1000NjyD8RLtF4bFHpsOr8MGwYZifguNQ)
+![ClusterIP](https://1.bp.blogspot.com/-dXszbTZ3eB4/XL6o8epTy9I/AAAAAAAADPg/BLo1uJtzY_MPcL6YhWg426MRU05sjQx8QCLcBGAs/s1600/clusterip.jpeg)
 
 ~~~~
 $ kubectl apply -f service/yaml/svc-clusterip.yaml
@@ -43,7 +43,7 @@ $ curl -XGET http://10.233.60.180:8080
 #### Create service nodePort ####
 A NodePort is an open port (30000–32767) on every node of your cluster. Kubernetes transparently routes incoming traffic on the NodePort to your service, even if your application is running on a different node.
 
-![NodePort](https://cdn-images-1.medium.com/max/800/1*CdyUtG-8CfGu2oFC5s0KwA.png)
+![NodePort](https://1.bp.blogspot.com/-iOoMWu1gJgw/XL6o8jtoK9I/AAAAAAAADPk/pL8zlEZ1dT0PolPUipPF-sbpF3FS2QW5QCLcBGAs/s1600/nodeport.jpeg)
 
 ~~~~
 $ kubectl expose rc webserver --port=8888 --target-port=80 --type='NodePort' --namespace=webapps --name=web-service-nodeport
@@ -75,7 +75,9 @@ URL: http://<ip-server-host>:30080
 
 
 #### Create service load balancer ####
-Using a LoadBalancer service type automatically deploys an external load balance
+Using a LoadBalancer service type automatically deploys an external load balance.
+
+![LoadBalancer](https://4.bp.blogspot.com/-gMlVttdhnlE/XL6o8fLZAvI/AAAAAAAADPc/hhOYR4BYM-cuz7nfO1W0q3grHPYXO6RMwCLcBGAs/s1600/lb.jpeg)
 
 ~~~~
 $ kubectl apply -f service/yaml/svc-loadbalancer.yaml
@@ -104,3 +106,7 @@ Need forwarding rule from balancer 188.166.207.187:80 to <ipworker>:30080
 
 URL: http://188.166.207.187
 ~~~~
+
+#### Create service ingress ####
+
+![Ingress](https://4.bp.blogspot.com/-2ToTggM7hm4/XL6o9WJ-2QI/AAAAAAAADPw/St12QMgoT8o3kwATpMLUAqQJl3Em0L-ggCEwYBhgL/s1600/nodeport.png)
