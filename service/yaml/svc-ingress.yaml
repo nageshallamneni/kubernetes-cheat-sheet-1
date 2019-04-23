@@ -2,24 +2,20 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: web-service-ingress
-  namespace: webapps
+  #namespace: webapps
   annotations: 
     kubernetes.io/ingress.class: treafik    
 spec:
-  # Default backend
-  # backend:
-  #   serviceName: other
-  #   servicePort: 8080
   rules:
   - host: nginx.dimasrio.com
     http:
       paths:
       - backend:
           serviceName: nginx-service-clusterip
-          servicePort: 8080
+          servicePort: 80
   - host: tomcat.dimasrio.com
     http:
       paths:
       - backend:
           serviceName: tomcat-service-clusterip
-          servicePort: 8080
+          servicePort: 80

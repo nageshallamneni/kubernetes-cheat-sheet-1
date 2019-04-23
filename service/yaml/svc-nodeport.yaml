@@ -13,3 +13,19 @@ spec:
     protocol: TCP
     name: http
   type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: webapps
+  name: tomcat-service-nodeport
+spec:
+  selector:
+    app: tomcat-web-apps
+  ports:
+  - port: 9999
+    targetPort: 8080
+    nodePort: 30090
+    protocol: TCP
+    name: http
+  type: NodePort
