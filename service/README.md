@@ -14,8 +14,9 @@ $ kubectl apply -f service/yaml/nginx-rc.yaml
 ~~~~
 
 #### Create service ClusterIP ####
+This is the default Service Type, only reachable from within the cluster. Consider this as an internal load balancer.
 
-![ClusterIP](https://cdn-images-1.medium.com/max/800/1*I4j4xaaxsuchdvO66V3lAg.png)
+![ClusterIP](https://www.dropbox.com/s/p8fwbnoi3yzfrvx/clusterip.jpeg)
 
 ~~~~
 $ kubectl apply -f service/yaml/svc-clusterip.yaml
@@ -40,6 +41,7 @@ $ curl -XGET http://10.233.60.180:8080
 ~~~~
 
 #### Create service nodePort ####
+A NodePort is an open port (30000–32767) on every node of your cluster. Kubernetes transparently routes incoming traffic on the NodePort to your service, even if your application is running on a different node.
 
 ![NodePort](https://cdn-images-1.medium.com/max/800/1*CdyUtG-8CfGu2oFC5s0KwA.png)
 
@@ -72,4 +74,33 @@ URL: http://<ip-server-host>:30080
 ~~~~
 
 
-#### Create service ingress ####
+#### Create service load balancer ####
+Using a LoadBalancer service type automatically deploys an external load balance
+
+~~~~
+$ kubectl apply -f service/yaml/svc-loadbalancer.yaml
+service/web-service-loadbalance created
+
+$ kubectl describe svc web-service-loadbalance --namespace=webapps
+Name:                     web-service-loadbalance
+Namespace:                webapps
+Labels:                   <none>
+Annotations:              kubectl.kubernetes.io/last-applied-configuration:
+                            {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"web-service-loadbalance","namespace":"webapps"},"spec":{"external...
+Selector:                 app=nginx-web-apps
+Type:                     LoadBalancer
+IP:                       10.233.18.154
+External IPs:             188.166.207.187
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  30080/TCP
+Endpoints:                10.233.102.4:80,10.233.85.2:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+Note:
+Need forwarding rule from balancer 188.166.207.187:80 to <ipworker>:30080
+
+URL: http://188.166.207.187
+~~~~
