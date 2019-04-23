@@ -15,6 +15,7 @@ $ kubectl apply -f service/yaml/nginx-rc.yaml
 
 #### Create service ClusterIP ####
 This is the default Service Type, only reachable from within the cluster. Consider this as an internal load balancer.
+You need kube-proxy if you want accessing service.
 
 ![ClusterIP](https://1.bp.blogspot.com/-dXszbTZ3eB4/XL6o8epTy9I/AAAAAAAADPg/BLo1uJtzY_MPcL6YhWg426MRU05sjQx8QCLcBGAs/s1600/clusterip.jpeg)
 
