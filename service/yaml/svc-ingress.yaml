@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: web-service-ingress
-  #namespace: webapps
+  namespace: webapps
   annotations: 
     kubernetes.io/ingress.class: treafik    
 spec:
