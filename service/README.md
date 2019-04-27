@@ -111,3 +111,45 @@ URL: http://188.166.207.187
 #### Create service ingress ####
 
 ![Ingress](https://4.bp.blogspot.com/-2ToTggM7hm4/XL6o9WJ-2QI/AAAAAAAADPw/St12QMgoT8o3kwATpMLUAqQJl3Em0L-ggCEwYBhgL/s1600/nodeport.png)
+
+Install nginx ingress
+~~~~
+$ kubectl apply -f common/ns-and-sa.yaml
+$ kubectl apply -f common/default-server-secret.yaml
+$ kubectl apply -f common/nginx-config.yaml
+$ kubectl apply -f rbac/rbac.yaml
+$ kubectl apply -f daemon-set/nginx-ingress.yaml
+
+Refer: https://github.com/nginxinc/kubernetes-ingress/blob/master/docs/installation.md
+~~~~
+~~~~
+$ kubectl apply -f service/yaml/svc-ingress.yaml -n nginx-ingress
+deployment.apps "nginx-deploy" created
+deployment.apps "tomcat-deploy" created
+service "nginx-service" created
+service "tomcat-service" created
+ingress.extensions "web-service-ingress" created
+~~~~
+~~~~
+$ kubectl get all -n nginx-ingress
+NAME                                 READY     STATUS    RESTARTS   AGE
+pod/nginx-deploy-5c49f45c4f-npqfh    1/1       Running   0          6s
+pod/nginx-deploy-5c49f45c4f-pq52n    1/1       Running   0          6s
+pod/nginx-ingress-755df5c4cc-8bhgz   1/1       Running   0          8m
+pod/tomcat-deploy-864686dcd7-pqh2m   1/1       Running   0          6s
+pod/tomcat-deploy-864686dcd7-q7fhz   1/1       Running   0          6s
+
+NAME                     TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/nginx-service    ClusterIP   10.233.24.73    <none>        80/TCP    6s
+service/tomcat-service   ClusterIP   10.233.23.225   <none>        80/TCP    6s
+
+NAME                            DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx-deploy    2         2         2            2           6s
+deployment.apps/nginx-ingress   1         1         1            1           8m
+deployment.apps/tomcat-deploy   2         2         2            2           6s
+
+NAME                                       DESIRED   CURRENT   READY     AGE
+replicaset.apps/nginx-deploy-5c49f45c4f    2         2         2         6s
+replicaset.apps/nginx-ingress-755df5c4cc   1         1         1         8m
+replicaset.apps/tomcat-deploy-864686dcd7   2         2         2         6s
+~~~~
