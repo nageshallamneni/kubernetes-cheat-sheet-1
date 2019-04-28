@@ -153,3 +153,9 @@ replicaset.apps/nginx-deploy-5c49f45c4f    2         2         2         6s
 replicaset.apps/nginx-ingress-755df5c4cc   1         1         1         8m
 replicaset.apps/tomcat-deploy-864686dcd7   2         2         2         6s
 ~~~~
+
+Expose to balancer
+~~~~
+$ kubectl expose deploy nginx-ingress --name=nginx-ingress-webserver --protocol=TCP --target-port=80 --external-ip=x.x.x.x --type=LoadBalancer -n nginx-ingress
+service "nginx-ingress-webserver" exposed
+~~~~

@@ -1,3 +1,4 @@
+# Create deploymennt
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -46,6 +47,7 @@ spec:
         ports:
         - containerPort: 80
 ---
+# create service 
 apiVersion: v1
 kind: Service
 metadata:
@@ -68,6 +70,7 @@ spec:
   - port: 80
     targetPort: 8080
 ---
+# Create ingress rule
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
